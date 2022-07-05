@@ -9,23 +9,20 @@ if(jQuery('#input-lastName').val()!=""){ // adjust selector to point to all last
 } 
   
    var myVar = setInterval(function(){ var x = 0;  if(x==0){
-     if(jQuery('.ff-form-success').is(':visible') && customerEmail<>"undefined"){ // adjust selector to use the confirmation message on all forms
+      if(jQuery('.ff-form-success').is(':visible') && customerEmail!="undefined"){ // adjust (.ff-form-success) selector to use the confirmation message on all forms
      dataLayer.push({
      'event':'enhanced_conversion', // adjust event name to suit your setup
      'enhanced_conversion_data': {
       "email": customerEmail,
       "phone_number": customerPhone, 
       "first_name": customerFname,  // optional
-      "last_name": customerLname  // optional
-      "address": { // optional, if this is used all address fields need to be used
-        "first_name": yourFirstNameVariable,    
-        "last_name": yourLastNameVariable,        
+      "last_name": customerLname,  // optional
+      "address": {    // optional, if address is used all address fields to be filled
         "street": yourStreetAddressVariable,       
         "city": yourCityVariable,        
         "region": yourRegionVariable,        
         "postal_code": yourPostalCodeVariable,        
         "country": yourCountryVariable
-        
         }
     }
 });      

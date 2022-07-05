@@ -1,0 +1,140 @@
+{
+    "exportFormatVersion": 2,
+    "exportTime": "2022-07-05 11:24:01",
+    "containerVersion": {
+        "path": "accounts/2260795927/containers/89276384/versions/0",
+        "accountId": "2260795927",
+        "containerId": "89276384",
+        "containerVersionId": "0",
+        "container": {
+            "path": "accounts/2260795927/containers/89276384",
+            "accountId": "2260795927",
+            "containerId": "89276384",
+            "name": "Enhanced Conversion Tracking",
+            "publicId": "GTM-NN63BQR",
+            "usageContext": [
+                "WEB"
+            ],
+            "fingerprint": "1657019671578",
+            "tagManagerUrl": "https://tagmanager.google.com/#/container/accounts/2260795927/containers/89276384/workspaces?apiLink=container"
+        },
+        "tag": [
+            {
+                "accountId": "2260795927",
+                "containerId": "89276384",
+                "tagId": "5",
+                "name": "JS - Enhanced Conversion Tracking",
+                "type": "html",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "html",
+                        "value": "<script>\njQuery('.form-submit-send-btn').click(function(){ \nvar customerEmail = jQuery('#input-email,#input-email-2').val(); // adjust selector to point to all email fields\nvar customerPhone = jQuery('#input-phone,#input-phone-2').val(); // adjust selector to point to all phone fields\nvar customerFname = jQuery('#input-firstName').val(); // adjust selector to point to all first name fields\nvar customerLname = '';\nif(jQuery('#input-lastName').val()!=\"\"){ // adjust selector to point to all last name fields\n    customerLname = jQuery('#input-lastName').val() // adjust selector to point to all last name fields\n} \n  \n   var myVar = setInterval(function(){ var x = 0;  if(x==0){\n      if(jQuery('.ff-form-success').is(':visible') && customerEmail!=\"undefined\"){ // adjust (.ff-form-success) selector to use the confirmation message on all forms\n     dataLayer.push({\n     'event':'enhanced_conversion', // adjust event name to suit your setup\n     'enhanced_conversion_data': {\n      \"email\": customerEmail,\n      \"phone_number\": customerPhone, \n      \"first_name\": customerFname,  // optional\n      \"last_name\": customerLname,  // optional\n      \"address\": {    // optional, if address is used all address fields to be filled\n        \"street\": yourStreetAddressVariable,       \n        \"city\": yourCityVariable,        \n        \"region\": yourRegionVariable,        \n        \"postal_code\": yourPostalCodeVariable,        \n        \"country\": yourCountryVariable\n        }\n    }\n});      \n       clearInterval(myVar); x=1;\n      }  }  }, 1000); \n})\n    \n</script>"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "supportDocumentWrite",
+                        "value": "false"
+                    }
+                ],
+                "fingerprint": "1657020177730",
+                "firingTriggerId": [
+                    "4"
+                ],
+                "tagFiringOption": "ONCE_PER_EVENT",
+                "monitoringMetadata": {
+                    "type": "MAP"
+                },
+                "consentSettings": {
+                    "consentStatus": "NOT_SET"
+                }
+            }
+        ],
+        "trigger": [
+            {
+                "accountId": "2260795927",
+                "containerId": "89276384",
+                "triggerId": "4",
+                "name": "Window Loaded",
+                "type": "WINDOW_LOADED",
+                "fingerprint": "1657019696309"
+            },
+            {
+                "accountId": "2260795927",
+                "containerId": "89276384",
+                "triggerId": "7",
+                "name": "CE - enhanced_conversion",
+                "type": "CUSTOM_EVENT",
+                "customEventFilter": [
+                    {
+                        "type": "EQUALS",
+                        "parameter": [
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg0",
+                                "value": "{{_event}}"
+                            },
+                            {
+                                "type": "TEMPLATE",
+                                "key": "arg1",
+                                "value": "enhanced_conversion"
+                            }
+                        ]
+                    }
+                ],
+                "fingerprint": "1657019764838"
+            }
+        ],
+        "variable": [
+            {
+                "accountId": "2260795927",
+                "containerId": "89276384",
+                "variableId": "3",
+                "name": "DLV - EC User data",
+                "type": "v",
+                "parameter": [
+                    {
+                        "type": "INTEGER",
+                        "key": "dataLayerVersion",
+                        "value": "2"
+                    },
+                    {
+                        "type": "BOOLEAN",
+                        "key": "setDefaultValue",
+                        "value": "false"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "name",
+                        "value": "enhanced_conversion_data"
+                    }
+                ],
+                "fingerprint": "1657019788484",
+                "formatValue": {}
+            },
+            {
+                "accountId": "2260795927",
+                "containerId": "89276384",
+                "variableId": "6",
+                "name": "EC Data",
+                "type": "awec",
+                "parameter": [
+                    {
+                        "type": "TEMPLATE",
+                        "key": "mode",
+                        "value": "CODE"
+                    },
+                    {
+                        "type": "TEMPLATE",
+                        "key": "dataSource",
+                        "value": "{{DLV - EC User data}}"
+                    }
+                ],
+                "fingerprint": "1657019696309",
+                "formatValue": {}
+            }
+        ],
+        "fingerprint": "1657020241559",
+        "tagManagerUrl": "https://tagmanager.google.com/#/versions/accounts/2260795927/containers/89276384/versions/0?apiLink=version"
+    }
+}
